@@ -1,0 +1,24 @@
+@startuml
+
+class Guitar {
+Type
+Manufacturer
+Name
+Price
+Parameters[Color, Materials, Neck_Width, Neck_Radius, etc]
+Purchase_Quantity
+}
+
+Guitar --|> MyGuitar
+MyGuitar --|> Your_price
+class MyGuitar {
+User_guitar[Type, Manufacturer, Name, Price, Count, Parameters[]]
+}
+
+class Your_price {
+if User_guitar[Purchase_Quantity] > 1 :
+discount
+Final_price = discount * User_guitar[Purchase_Quantity]
+}
+
+@enduml
